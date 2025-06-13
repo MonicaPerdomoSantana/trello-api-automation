@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdir -p reports
           newman run "https://api.postman.com/collections/33274775-b2a05e16-355c-4564-9909-b729ad24f5c2?apikey=${{ secrets.POSTMAN_API_KEY }}" \
-            -e https://api.postman.com/environments/33274775-713aba76-28fb-47a2-a55f-ffb006a117de?apikey=${{ secrets.POSTMAN_API_KEY }}" \
+            -e "https://api.postman.com/environments/33274775-713aba76-28fb-47a2-a55f-ffb006a117de?apikey=${{ secrets.POSTMAN_API_KEY }}" \
             --reporters htmlextra \
             --reporter-htmlextra-export reports/report.html
 
