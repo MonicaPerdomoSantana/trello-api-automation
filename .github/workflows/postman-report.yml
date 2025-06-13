@@ -2,7 +2,7 @@ name: Postman htmlextra report
 
 on:
   schedule:
-    - cron: "0 3 * * *" # Every day at 3 AM
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 jobs:
@@ -26,6 +26,11 @@ jobs:
             -e "https://api.postman.com/environments/33274775-713aba76-28fb-47a2-a55f-ffb006a117de?apikey=${{ secrets.POSTMAN_API_KEY }}" \
             --reporters htmlextra \
             --reporter-htmlextra-export reports/report.html
+
+      - name: Mask sensitive info in report
+        run: |
+          sed -i "s/${{ secrets.TRELLO_KEY }}/****/g" reports/report.html
+          sed -i "s/${{ secrets.TRELLO_TOKEN }}/****/g" reports/report.html
 
       - name: Publish report on GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
