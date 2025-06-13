@@ -29,7 +29,7 @@ jobs:
 
       - name: Mask sensitive info in report
         run: |
-          sed -i "s/${{ secrets.TRELLO_KEY }}/****/g" reports/report.html
+          sed -i "s/${{ secrets.TRELLO_API_KEY }}/****/g" reports/report.html
           sed -i "s/${{ secrets.TRELLO_TOKEN }}/****/g" reports/report.html
 
       - name: Publish report on GitHub Pages
