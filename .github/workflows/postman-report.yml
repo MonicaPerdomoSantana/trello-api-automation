@@ -1,0 +1,30 @@
+name: Postman htmlextra report
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # Every day at 3 AM
+  workflow_dispatch:
+
+jobs:
+  postman:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Newman and htmlextra
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: Execute Trello Postman Collection
+        run: |
+          mkdir -p reports
+          newman run "https://api.postman.com/collections/33274775-b2a05e16-355c-4564-9909-b729ad24f5c2?apikey=${{ secrets.POSTMAN_API_KEY }}" \
+            --reporters htmlextra \
+            --reporter-htmlextra-export reports/report.html
+
+      - name: Publish report on GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports
