@@ -7,7 +7,7 @@ This repository automatically runs a [Postman](https://www.postman.com/) collect
 ## 🔄 What it does
 
 - Runs the Postman collection daily at 03:00 AM UTC.
-- Fetches the collection from a **Postman API URL**.
+- Fetches the a personal collection and environment from a **Postman API URL** from my Postman account.
 - Generates a detailed test report in HTML format.
 - Publishes the report to GitHub Pages for public access.
 
