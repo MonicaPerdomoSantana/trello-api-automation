@@ -65,7 +65,7 @@ You can adjust this in `.github/workflows/postman-report.yml`.
 ## 👩‍💻 Author
 
 Made with ❤️ by **Mónica Perdomo Santana**  
-[GitHub](https://github.com/MonicaPerdomoSantana) · [Portfolio](https://mps-portfolio.netlify.com)
+[GitHub](https://github.com/MonicaPerdomoSantana) · [Portfolio](https://monica-perdomo-portfolio.netlify.app)
 
 ---
 
